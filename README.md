@@ -4,7 +4,7 @@ A web stack refers to the set of technologies used to build a web application. I
 
 Web stacks are crucial for the development, operation, and maintenance of web applications. They provide the necessary environment for coding, testing, and deploying applications, thereby enabling the functionality of websites and online services we use daily.
 
-### What is back-end?
+## What is back-end?
 
 The back-end, often referred to as the "server-side", is the part of a web application that operates behind the scenes. It is responsible for managing and organizing data, implementing the business logic of an application, and communicating with the front-end. It is typically built using languages like Java, Python, Ruby, Node.js, and frameworks such as Django, Express, or Rails.
 
