@@ -19,10 +19,10 @@ The back-end interacts with databases to retrieve, store, or manipulate data, wh
 
 ## Author :black_nib:
 
-> Foster Clark :man_technologist:
+- Foster Clark :man_technologist:
 
-> [E-mail](agzsoftsi@gmail.com) :incoming_envelope:
+- [E-mail](agzsoftsi@gmail.com) :incoming_envelope:
 
-> [Github](https://github.com/fosterclark48) :ocotocat:
+- [Github](https://github.com/fosterclark48) :octocat:
 
-> [LinkedIn ![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/fosterclark12/)
+- [LinkedIn ![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/fosterclark12/)
