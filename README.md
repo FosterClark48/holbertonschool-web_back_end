@@ -25,4 +25,4 @@ The back-end interacts with databases to retrieve, store, or manipulate data, wh
 
 > [Github](https://github.com/fosterclark48) :ocotocat:
 
-> [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/fosterclark12/)
+> [LinkedIn ![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/fosterclark12/)
