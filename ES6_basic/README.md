@@ -402,4 +402,4 @@ The method property receives employeesList and returns the number of departments
 ---
 
 ## Author
-- **Foster Clark** - [fozc](https://github.com/FosterClark48) :octocat:
+- **Foster Clark** - [fozc](https://github.com/FosterClark48) :octocat: 
