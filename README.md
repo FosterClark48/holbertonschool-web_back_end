@@ -23,6 +23,6 @@ The back-end interacts with databases to retrieve, store, or manipulate data, wh
 
 > [E-mail](agzsoftsi@gmail.com) :incoming_envelope:
 
-> [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/FosterClark48)
+> [Github](https://github.com/fosterclark48) :ocotocat:
 
 > [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/fosterclark12/)
