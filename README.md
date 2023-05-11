@@ -15,11 +15,13 @@ The back-end interacts with databases to retrieve, store, or manipulate data, wh
 
 - [ES6_basic](/ES6_basic)
 
+- [ES6_promise](/ES6_promise)
+
 
 
 ## Author :black_nib:
 
-- Foster Clark :man_technologist:
+- **Foster Clark** :man_technologist:
 
 - [E-mail](agzsoftsi@gmail.com) :incoming_envelope:
 
