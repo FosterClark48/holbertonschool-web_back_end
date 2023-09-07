@@ -29,6 +29,10 @@ The course is project-based, meaning you'll learn by doing, creating several web
 
 - ### Project 5: [**Python Variable Annotations**](/python_variable_annotations)
 
+- ### Project 6: [**Python Async Function**](/python_async_function)
+
+- ### Project 7: [**Python Async Comprehension**](/python_async_comprehension)
+
 ## Prerequisites :rocket:
 This course is designed for those with some basic knowledge of programming. It's recommended that you have some experience with a language like Python or C, and a basic understanding of web technologies.
 
