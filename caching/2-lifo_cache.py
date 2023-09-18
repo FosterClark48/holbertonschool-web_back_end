@@ -28,10 +28,9 @@ class LIFOCache(BaseCaching):
         if key is None or item is None:
             return
 
-
         # If cache will overflow after adding the new item, evict
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            if key not in self.cache_data: # Only evict if the key is new
+            if key not in self.cache_data:  # Only evict if the key is new
                 evicted_key = self.item_order.pop(-1)
                 del self.cache_data[evicted_key]
                 print(f"DISCARD: {evicted_key}")
