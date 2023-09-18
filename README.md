@@ -39,7 +39,7 @@ The course is project-based, meaning you'll learn by doing, creating several web
 
 - ### Project 10: [**Personal Data**](/personal_data)
 
-- ### Project 10: [**Basic Authentication**](/Basic_authentication)
+- ### Project 11: [**Basic Authentication**](/Basic_authentication)
 
 ## Prerequisites :rocket:
 This course is designed for those with some basic knowledge of programming. It's recommended that you have some experience with a language like Python or C, and a basic understanding of web technologies.
