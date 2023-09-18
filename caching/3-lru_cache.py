@@ -24,13 +24,16 @@ class LRUCache(BaseCaching):
         updates the order list to maintain LRU characteristics. It evicts the
         least recently used item if the cache reaches its maximum size.
         """
+        # Check for None
         if key is None or item is None:
             return
 
+        # Update Cache
         self.cache_data[key] = item
-        if key in self.item_order:
-            self.item_order.remove(key)
-        self.item_order.append(key)
+        # Update order
+        if key in self.item_order:  # if key already exists in order list
+            self.item_order.remove(key)  # remove old occurrence
+        self.item_order.append(key)  # then add it to end of list
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             evicted_key = self.item_order.pop(0)
