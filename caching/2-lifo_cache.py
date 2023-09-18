@@ -28,15 +28,21 @@ class LIFOCache(BaseCaching):
         if key is None or item is None:
             return
 
-        self.cache_data[key] = item
+
+        # If cache will overflow after adding the new item, evict
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            if key not in self.cache_data: # Only evict if the key is new
+                evicted_key = self.item_order.pop(-1)
+                del self.cache_data[evicted_key]
+                print(f"DISCARD: {evicted_key}")
+
+        # Remove key from item_order list if it exists (updating value)
         if key in self.item_order:
             self.item_order.remove(key)
-        self.item_order.append(key)
 
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            evicted_key = self.item_order.pop()
-            del self.cache_data[evicted_key]
-            print(f"DISCARD: {evicted_key}")
+        # Add new item
+        self.item_order.append(key)
+        self.cache_data[key] = item
 
     def get(self, key):
         """Retrieve a value from the cache
