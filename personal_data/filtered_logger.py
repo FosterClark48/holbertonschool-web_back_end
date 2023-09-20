@@ -1,24 +1,59 @@
 #!/usr/bin/env python3
-""" filtered_logger.py module
+"""
+filtered_logger Module
+======================
 
-This module contains the RedactingFormatter class for logging, which
-inherits from logging.Formatter. It redacts sensitive information
-(fields like email, ssn, password, etc.) from the log records.
+This module provides functionality for logging with specific data redaction
+capabilities. It is designed to handle various types of Personally
+Identifiable Information (PII) by filtering them out or replacing them
+with a fixed redaction string when logging.
 
-Classes:
-    RedactingFormatter: A logging formatter that redacts sensitive fields.
+The module includes:
+- A customized logging formatter (`RedactingFormatter`) that can redact
+specified fields.
+- A function (`get_db`) for obtaining a MySQL database connection.
+- A `main` function for retrieving and logging user data from a database
+in a redacted format.
 
 Functions:
-    filter_datum(fields, redaction, message, separator): Obfuscates specific
-    fields in a log message.
+-----------
+- `filter_datum(fields: List[str], redaction: str, message: str,
+separator: str) -> str`
+    Takes a string message and redacts specific fields.
+
+- `get_logger() -> logging.Logger`
+    Returns a logging object that has been configured to use
+    the RedactingFormatter.
+
+- `get_db() -> mysql.connector.connection.MySQLConnection`
+    Returns a connector to the database.
+
+- `main() -> None`
+    Retrieves and logs user data in a redacted format.
+
+Usage:
+------
+    $ python3 filtered_logger.py
+
+Notes:
+------
+- Environment variables are used to get the database credentials.
+- Only the `main` function should run when the module is executed directly.
+
+Author: Foster
 """
 
 import re
-from typing import List
+from typing import List, NoReturn
 import logging
 import os
 from mysql.connector.connection import MySQLConnection
 import mysql.connector
+
+
+# Initialize logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("[HOLBERTON] user_data")
 
 
 PII_FIELDS = ("name", "email", "ssn", "password", "phone")
@@ -127,3 +162,57 @@ def get_db() -> MySQLConnection:
         database=db_name
     )
     return db
+
+
+def main() -> NoReturn:
+    """
+    Main function that retrieves all rows from the users table and logs them.
+    Connects to the database, executes a SELECT query, and logs the results
+    in a redacted format.
+
+    Returns:
+        NoReturn: The function returns nothing.
+    """
+    # Obtain database connection
+    db = get_db()
+
+    # Initialize cursor
+    cursor = db.cursor()
+
+    # SQL to fetch all rows from the users table
+    cursor.execute("SELECT * FROM users;")
+
+    # Loop through each row and log in the specific format
+    for row in cursor:
+        user_data = {
+            "name": row[0],
+            "email": row[1],
+            "phone": row[2],
+            "ssn": row[3],
+            "password": row[4],
+            "ip": row[5],
+            "last_login": row[6],
+            "user_agent": row[7]
+        }
+
+        # Convert user_data dict to message string
+        message = "; ".join(
+            [f"{key}={value}" for key, value in user_data.items()]
+        )
+
+        # Apply filtering
+        redacted_message = filter_datum(["name",
+                                         "email",
+                                         "phone",
+                                         "ssn",
+                                         "password"], "***", message, "; ")
+
+        # Log the redacted_message
+        logger.info(redacted_message)
+
+    cursor.close()
+    db.close()
+
+# Only run main when the module is executed
+if __name__ == "__main__":
+    main()
