@@ -6,6 +6,18 @@ Encrypt Password Module
 This module provides functionalities for securely hashing passwords,
 making use of the bcrypt hashing algorithm to ensure password data
 security.
+
+Functions:
+----------
+- `hash_password(password: str) -> bytes`:
+    Hashes a plain-text password and returns the salted, hashed byte-string.
+
+- `is_valid(hashed_password: bytes, password: str) -> bool`:
+    Validates that a plain-text password matches the hashed password.
+
+Dependencies:
+-------------
+- bcrypt
 """
 
 
@@ -22,10 +34,21 @@ def hash_password(password: str) -> bytes:
     Returns:
         bytes: The salted, hashed password.
     """
-    # Generate a salt
-    salt = bcrypt.gensalt()
+    salt = bcrypt.gensalt()  # Generate a salt
+    hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
 
-    # Hash the password with the salt
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed
 
-    return hashed_password
+
+def is_valid(hashed_password: bytes, password: str) -> bool:
+    """
+    Validate a password against a hashed password using bcrypt.
+
+    Args:
+        hashed_password (bytes): The hashed password to compare against.
+        password (str): The plain-text password to validate.
+
+    Returns:
+        bool: True if the password matches, False otherwise.
+    """
+    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
