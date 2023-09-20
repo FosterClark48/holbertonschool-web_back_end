@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
-""" This is the filter_datum module
+""" filtered_logger.py module
 
-This module contains a function filter_datum that returns
-an obfuscated log message.
+This module contains the RedactingFormatter class for logging, which
+inherits from logging.Formatter. It redacts sensitive information
+(fields like email, ssn, password, etc.) from the log records.
+
+Classes:
+    RedactingFormatter: A logging formatter that redacts sensitive fields.
+
+Functions:
+    filter_datum(fields, redaction, message, separator): Obfuscates specific
+    fields in a log message.
 """
 
 import re
