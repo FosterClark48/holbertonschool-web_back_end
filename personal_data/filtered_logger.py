@@ -50,17 +50,33 @@ def filter_datum(fields: List[str],
 
 
 class RedactingFormatter(logging.Formatter):
-    """ Redacting Formatter class """
+    """ Redacting Formatter class
+    This class inherits from logging.Formatter and redacts specific fields in
+    log records.
+    """
 
     REDACTION = "***"
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
     SEPARATOR = ";"
 
     def __init__(self, fields: List[str]):
+        """ Initialize the formatter.
+
+        Args:
+            fields (list): List of field names to redact.
+        """
         super(RedactingFormatter, self).__init__(self.FORMAT)
         self.fields = fields
 
     def format(self, record: logging.LogRecord) -> str:
+        """ Format the log record.
+
+        Args:
+            record (logging.LogRecord): The log record.
+
+        Returns:
+            str: Formatted log record with specified fields redacted.
+        """
         original_msg = logging.Formatter.format(self, record)
         return filter_datum(self.fields,
                             self.REDACTION, original_msg, self.SEPARATOR)
