@@ -57,22 +57,24 @@ class BasicAuth(Auth):
                 user_pwd is None or type(user_pwd) is not str):
             return None
 
+        try:
+            # Try fetching users w/ provided email
+            users = User.search({'email': user_email})
 
-        # Try fetching users w/ provided email
-        users = User.search({'email': user_email})
+            # Check if any user was found w/ given email
+            if not users:
+                return None
 
-        # Check if any user was found w/ given email
-        if not users:
+            # Assuming the email is unique and we get a single user back
+            user = users[0]
+
+            # Verify password for fetched user
+            if not user.is_valid_password(user_pwd):
+                return None
+        except Exception:
             return None
 
-        # Assuming the email is unique and we get a single user back
-        user = users[0]
-
-        # Verify password for fetched user
-        if not user.is_valid_password(user_pwd):
-            return None
-
-        return None
+        return user
 
     def current_user(self, request=None) -> TypeVar('User'):
         """ Retrieves the User instance for a request """
