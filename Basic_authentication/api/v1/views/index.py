@@ -9,7 +9,7 @@ from api.v1.views import app_views
 def status() -> str:
     """ GET /api/v1/status
     Return:
-      - the status of the API
+        - the status of the API
     """
     return jsonify({"status": "OK"})
 
@@ -18,7 +18,7 @@ def status() -> str:
 def stats() -> str:
     """ GET /api/v1/stats
     Return:
-      - the number of each objects
+        - the number of each objects
     """
     from models.user import User
     stats = {}
@@ -32,3 +32,11 @@ def unauthorized() -> str:
     This endpoint will raise a 401 error.
     """
     abort(401)
+
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden() -> str:
+    """ GET /api/v1/forbidden
+    This endpoint will raise a 403 error.
+    """
+    abort(403)
