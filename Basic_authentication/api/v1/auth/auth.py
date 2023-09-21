@@ -21,10 +21,23 @@ class Auth():
             from authentication.
 
         Returns:
-            bool: Always returns `False`. This behavior will change
-            in the future.
+            bool: Returns `True` if path needs authentication,
+            otherwise `False`.
         """
-        return False
+        if path is None:
+            return True
+
+        if excluded_paths is None or len(excluded_paths) == 0:
+            return True
+
+        # Make sure the path has a trailing slash for comparison
+        # if path doesnt end with a slash put one on there otherwise leave it
+        path = path + '/' if not path.endswith('/') else path
+
+        if path in excluded_paths:
+            return False
+
+        return True
 
     def authorization_header(self, request=None) -> str:
         """ Method to fetch the value of the authorization header.
