@@ -49,4 +49,3 @@ class Auth():
             This behavior will change in the future.
         """
         return None
-
