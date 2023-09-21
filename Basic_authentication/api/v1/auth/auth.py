@@ -46,10 +46,16 @@ class Auth():
             Defaults to None.
 
         Returns:
-            str: Always returns `None`.
-            This behavior will change in the future.
+            str: The value of the 'Authorization' header in the request
+            if present. Returns `None` if the request object is None or
+            does not contain the 'Authorization' header.
         """
-        return None
+        if request is None:
+            return None
+
+        if 'Authorization' not in request.headers:
+            return None
+        return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> User:
         """ Method to fetch the current user.
