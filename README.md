@@ -43,6 +43,8 @@ The course is project-based, meaning you'll learn by doing, creating several web
 
 - ### Project 12: [**Session Authentication**](/Session_authentication)
 
+- ### Project 13: [**User Authentication Service**](/user_authentication_service)
+
 ## Prerequisites :rocket:
 This course is designed for those with some basic knowledge of programming. It's recommended that you have some experience with a language like Python or C, and a basic understanding of web technologies.
 
