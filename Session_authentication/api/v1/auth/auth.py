@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ Auth module for handling authentication
 """
+import os
 from typing import List, TypeVar
 from flask import request
 
@@ -68,3 +69,17 @@ class Auth():
             This behavior will change in the future.
         """
         return None
+
+    def session_cookie(self, request=None):
+        """ Returns a cookie value from a request
+        Args:
+            request: the request object from Flask
+
+        Returns:
+            str: the value of the cookie if present, else None
+        """
+        if request is None:
+            return None
+
+        session_name = os.getenv("SESSION_NAME")
+        return request.cookies.get(session_name)
