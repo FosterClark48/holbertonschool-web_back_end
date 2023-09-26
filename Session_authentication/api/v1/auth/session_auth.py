@@ -31,13 +31,16 @@ class SessionAuth(Auth):
         """ Overloads (Overrides) Auth.current_user
         Retrieves the User instance for a request
         """
+        # Get session_id from the cookie
         session_id = self.session_cookie(request)
         if not session_id:
             return None
 
+        # Get user id from session id
         user_id = self.user_id_for_session_id(session_id)
         if not user_id:
             return None
 
+        # retrieve and return user instance
         from models.user import User
         return User.get(user_id)
