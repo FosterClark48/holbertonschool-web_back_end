@@ -4,7 +4,7 @@ Session Authentication for the API. The provided endpoint allows
 the user to log in by creating a new session.
 """
 from api.v1.views import app_views
-from flask import request, jsonify, make_response
+from flask import request, jsonify, make_response, abort
 from models.user import User
 from os import getenv
 
@@ -40,3 +40,17 @@ def login():
     response = make_response(user.to_json())
     response.set_cookie(getenv('SESSION_NAME'), session_id)
     return response
+
+@app_views.route(
+    '/auth_session/logout',
+    methods=['DELETE'],
+    strict_slashes=False
+)
+def logout():
+    """ Handle DELETE request for /auth_session/logout route """
+    from api.v1.app import auth
+
+    if not auth.destroy_session(request):
+        abort(404)
+
+    return jsonify({}), 200
