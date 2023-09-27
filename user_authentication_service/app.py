@@ -69,7 +69,7 @@ def profile():
         abort(403)
 
 
-@app.route('/reset_password', methods=['POST'], strict_slashes=False)
+@app.route('/reset_password', methods=['POST'])
 def get_reset_password_token():
     """ Generate a reset password token """
     email = request.form.get('email')
