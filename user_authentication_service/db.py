@@ -5,7 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import SQLAlchemyError, InvalidRequestError
+from sqlalchemy.orm.exc import NoResultFound
 
 from user import Base, User
 
@@ -41,3 +42,16 @@ class DB:
         except SQLAlchemyError as e:
             self._session.rollback()
             raise e
+
+    def find_user_by(self, **kwargs) -> User:
+        """ Returns first row found in users table as filtered by
+        the method's input arguments
+        """
+        try:
+            # return first User obj that matches filter criteria specified
+            # by kwargs, show exactly one row of results - one()
+            return self._session.query(User).filter_by(**kwargs).one()
+        except NoResultFound:
+            raise
+        except InvalidRequestError:
+            raise
