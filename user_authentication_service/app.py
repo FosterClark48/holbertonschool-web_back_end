@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ This module contains a Flask app that serves a JSON response """
-from flask import Flask, jsonify, request, abort, make_response
+from flask import Flask, jsonify, request, abort, make_response, redirect
 from auth import Auth
 
 
@@ -39,6 +39,21 @@ def login():
     session_id = AUTH.create_session(email)
     response = make_response(jsonify({"email": email, "message": "logged in"}))
     response.set_cookie('session_id', session_id)
+    return response
+
+
+@app.route('/sessions', methods=['DELETE'], strict_slashes=False)
+def logout():
+    """ Log out by destroying current session """
+    session_id = request.cookies.get('session_id')
+    user = AUTH.get_user_from_session_id(session_id)
+
+    if user is None:
+        abort
+
+    AUTH.destory_session(user.id)
+    response = redirect('/')
+    response.set_cookie('session_id', '', expires=0)
     return response
 
 
