@@ -122,9 +122,7 @@ In your `get_locale` function, detect if the incoming request contains `locale` 
 Now you should be able to test different translations by visiting `http://127.0.0.1:5000?locale=[fr|en]`.
 
 **Visiting `http://127.0.0.1:5000/?locale=fr` should display this level 1 heading:**
-<p>
-  <img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2020/3/f958f4a1529b535027ce.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230930%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230930T194451Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=1a3cc2ac6dad66965e849eb0e4bcae653ee8e17729a31b8ce3fab4b7881827c2" alt="" loading="lazy" style="">
-</p>
+![image](https://github.com/FosterClark48/holbertonschool-web_back_end/assets/105602291/8b0714af-3aa0-457f-8e6f-66802b52f516)
 
 
 ### [5. Mock logging in](./5-app.py)
