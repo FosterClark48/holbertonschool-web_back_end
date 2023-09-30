@@ -106,6 +106,7 @@ Then edit files `translations/[en|fr]/LC_MESSAGES/messages.po` to provide the co
     </tr>
   </tbody>
 </table>
+
 Then compile your dictionaries with
 ```sh
 $ pybabel compile -d translations
