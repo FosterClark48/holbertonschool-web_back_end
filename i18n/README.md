@@ -175,6 +175,7 @@ In your HTML template, if a user is logged in, in a paragraph tag, display a wel
 </table>
 
 **Visiting `http://127.0.0.1:5000/` in your browser should display this:**
+
 ![image](https://github.com/FosterClark48/holbertonschool-web_back_end/assets/105602291/00ec3110-2c14-4c8f-9849-5267fd074d6c)
 
 **Visiting `http://127.0.0.1:5000/?login_as=2` in your browser should display this:**
@@ -192,6 +193,7 @@ The order of priority should be
   4. Default locale
 
 Test by logging in as different users
+
 ![image](https://github.com/FosterClark48/holbertonschool-web_back_end/assets/105602291/f56240ef-08a0-4b31-b26f-a208a0132f33)
 
 
