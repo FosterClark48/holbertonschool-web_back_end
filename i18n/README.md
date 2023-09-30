@@ -186,10 +186,11 @@ Change your `get_locale` function to use a user’s preferred local if it is sup
 
 The order of priority should be
 
-Locale from URL parameters
-Locale from user settings
-Locale from request header
-Default locale
+  1. Locale from URL parameters
+  2. Locale from user settings
+  3. Locale from request header
+  4. Default locale
+
 Test by logging in as different users
 ![image](https://github.com/FosterClark48/holbertonschool-web_back_end/assets/105602291/f56240ef-08a0-4b31-b26f-a208a0132f33)
 
