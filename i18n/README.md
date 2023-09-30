@@ -175,10 +175,10 @@ In your HTML template, if a user is logged in, in a paragraph tag, display a wel
 </table>
 
 **Visiting `http://127.0.0.1:5000/` in your browser should display this:**
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2020/3/2c5b2c8190f88c6b4668.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230930%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230930T194451Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=4a75011fd968a16099eb406b643a0ed49f8aeeac15931ec9f3ec7c3cbde3c00d" alt="" loading="lazy" style="">
+![image](https://github.com/FosterClark48/holbertonschool-web_back_end/assets/105602291/00ec3110-2c14-4c8f-9849-5267fd074d6c)
 
 **Visiting `http://127.0.0.1:5000/?login_as=2` in your browser should display this:**
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2020/3/277f24308c856a09908c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230930%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230930T194451Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=831fbad0a715dc1617adc9f634a0e3b833b937d13cdcd751a99611904f09ad9f" alt="" loading="lazy" style="">
+![image](https://github.com/FosterClark48/holbertonschool-web_back_end/assets/105602291/4e884474-20a4-46a1-b0ab-e1960eb08185)
 
 
 ### [6. Use user locale](./6-app.py)
@@ -191,7 +191,7 @@ Locale from user settings
 Locale from request header
 Default locale
 Test by logging in as different users
-<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2020/3/9941b480b0b9d87dc5de.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230930%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20230930T194451Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f9f9bee61c61fd12d570329f7be5e9c2c1b47973153322c14281b4795e70a3ea" alt="" loading="lazy" style="">
+![image](https://github.com/FosterClark48/holbertonschool-web_back_end/assets/105602291/f56240ef-08a0-4b31-b26f-a208a0132f33)
 
 
 ### [7. Infer appropriate time zone](./7-app.py)
