@@ -7,7 +7,7 @@ from parameterized import parameterized
 from client import GithubOrgClient
 
 
-class TestAccessNestedMap(unittest.TestCase):
+class TestGithubOrgClient(unittest.TestCase):
     """ Test case for the GithubOrgClient class """
 
     @parameterized.expand([
