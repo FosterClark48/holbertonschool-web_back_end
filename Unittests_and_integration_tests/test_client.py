@@ -2,7 +2,7 @@
 """ Unit Test module for client.py """
 
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import patch, PropertyMock
 from parameterized import parameterized
 from client import GithubOrgClient
 
@@ -26,3 +26,16 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_get_json.assert_called_once_with(
             f"https://api.github.com/orgs/{org_name}")
         self.assertEqual(response, {"fake_key": "fake_value"})
+
+    # patch.object is generally used to mock a property instead of patch
+    @patch.object(GithubOrgClient, 'org', new_callable=PropertyMock)
+    def test_public_repos_url(self, mock_org):
+        """ Test the _public_repos_url method of GOC """
+        mock_org.return_value = {
+            'repos_url': 'https://api.github.com/orgs/some_org/repos'}
+        # Instantiate GOC
+        client = GithubOrgClient("some_org")
+        self.assertEqual(
+            client._public_repos_url,
+            'https://api.github.com/orgs/some_org/repos')
+
