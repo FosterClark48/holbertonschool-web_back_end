@@ -39,7 +39,6 @@ class TestGithubOrgClient(unittest.TestCase):
             client._public_repos_url,
             'https://api.github.com/orgs/some_org/repos')
 
-
     @patch('client.get_json', return_value=[
         {"name": "repo1"},
         {"name": "repo2"},
