@@ -3,8 +3,10 @@
 
 import unittest
 from unittest.mock import patch, PropertyMock
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
+from requests.cookies import MockResponse
 from client import GithubOrgClient
+from fixtures import TEST_PAYLOAD
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -64,3 +66,36 @@ class TestGithubOrgClient(unittest.TestCase):
     def test_has_license(self, repo, license_key, expected):
         """ Test the has_license static method of GOC """
         self.assertEqual(GithubOrgClient.has_license(repo, license_key), expected)
+
+
+@parameterized_class(
+    ("org_payload", "repos_payload", "expected_repos", "apache2_repos"),
+    TEST_PAYLOAD
+)
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """ Integration Test for GOC using fixtures.py """
+
+    @classmethod
+    def setUpClass(cls):
+        """ Setup class """
+        cls.get_patcher = patch('requests.get')
+
+        # Create our mock instance
+        cls.mock_get = cls.get_patcher.start()
+
+        # Set up our mock to return our fixture data depending on input URL
+        def side_effect(url):
+            if url.endswith("/orgs/dummy_org"):
+                return MockResponse(cls.org_payload)
+            elif url.endswith("/orgs/dummy_org/repos"):
+                return MockResponse(cls.repos_payload)
+            else:
+                return MockResponse({})
+
+        cls.mock_get.side_effect = side_effect
+
+    @classmethod
+    def tearDownClass(cls):
+        """ Tear down class """
+        cls.get_patcher.stop()
+
