@@ -12,6 +12,7 @@ class Config:
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
+
 # Apply config to app
 app.config.from_object(Config)
 
