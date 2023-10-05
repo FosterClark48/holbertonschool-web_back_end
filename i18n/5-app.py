@@ -37,6 +37,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user():
     """ Retrieve a user based on the login_as URL parameter """
     user_id = request.args.get('login_as')
