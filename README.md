@@ -45,6 +45,12 @@ The course is project-based, meaning you'll learn by doing, creating several web
 
 - ### Project 13: [**User Authentication Service**](/user_authentication_service)
 
+- ### Project 14: [**Unittests and Integration Tests**](/Unittests_and_integration_tests)
+
+- ### Project 15: [**i18n**](/i18n)
+
+- ### Project 16: [**Redis Basics**](/0x0B_redis_basic)
+
 ## Prerequisites :rocket:
 This course is designed for those with some basic knowledge of programming. It's recommended that you have some experience with a language like Python or C, and a basic understanding of web technologies.
 
