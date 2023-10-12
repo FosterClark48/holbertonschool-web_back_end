@@ -51,6 +51,10 @@ The course is project-based, meaning you'll learn by doing, creating several web
 
 - ### Project 16: [**Redis Basics**](/0x0B_redis_basic)
 
+- ### Project 17: [**MySQL Advanced**](/MySQL_Advanced)
+
+- ### Project 18: [**NoSQL**](/NoSQL)
+
 ## Prerequisites :rocket:
 This course is designed for those with some basic knowledge of programming. It's recommended that you have some experience with a language like Python or C, and a basic understanding of web technologies.
 
