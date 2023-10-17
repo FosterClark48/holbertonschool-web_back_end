@@ -1,0 +1,67 @@
+# async-timeout==4.0.2
+# Babel==2.9.1
+# bcrypt==3.2.0
+# beautifulsoup4==4.10.0
+# bs4==0.0.1
+certifi==2021.10.8
+cffi==1.15.0
+charset-normalizer==2.0.12
+# click==8.1.0
+# Deprecated==1.2.13
+# Flask==2.1.0
+# Flask-Babel==2.0.0
+# Flask-Cors==3.0.10
+# greenlet==1.1.2
+idna==3.3
+importlib-metadata==4.11.3
+# itsdangerous==2.1.2
+# Jinja2==3.1.1
+MarkupSafe==2.1.1
+# mypy==0.942
+# mypy-extensions==0.4.3
+mysql-connector-python==8.0.28
+mysqlclient==2.1.0
+packaging==21.3
+# parameterized==0.8.1
+# protobuf==3.19.4
+# pycodestyle==2.5.0
+pycparser==2.21
+pyparsing==3.0.7
+pytz==2022.1
+# redis==4.2.0
+# requests==2.27.1
+six==1.16.0
+# soupsieve==2.3.1
+SQLAlchemy==1.4.32
+tomli==2.0.1
+# typed-ast==1.5.2
+typing-extensions==4.1.1
+urllib3==1.26.9
+# Werkzeug==2.1.0
+wrapt==1.14.0
+zipp==3.7.0
+
+# Given the project tasks, it seems the focus is primarily on SQL operations and not so much on Python-based operations or web services. Lets narrow down my requirements.txt based on the tasks:
+
+# SQL Operations: This is the primary functionality, so you will want to retain the libraries related to database operations.
+# Keep: mysql-connector-python, mysqlclient
+
+# Web Framework: The project doesnt seem to involve creating a Flask web application.
+# Remove: Flask, Flask-Babel, Flask-Cors, Jinja2, itsdangerous, Werkzeug
+
+# Web Scraping: The project doesnt mention anything about web scraping.
+# Remove: beautifulsoup4, bs4, soupsieve
+
+# Redis Operations: No Redis database operations were mentioned.
+# Remove: redis
+
+# Type Checking and Linting: If youre not using type annotations or linting, you can remove these, but if youre using them for development purposes, you might want to keep them.
+# Optional (Based on your preference): mypy, mypy-extensions, typed-ast, pycodestyle
+
+# HTTP Requests: The project doesnt seem to involve making HTTP requests.
+# Remove: requests
+
+# Others:
+# Remove: async-timeout, Babel, bcrypt, click, Deprecated, greenlet, protobuf, parameterized
+
+# Dependencies & Utilities: Some libraries like cffi, charset-normalizer, idna, importlib-metadata, MarkupSafe, packaging, pyparsing, pytz, six, tomli, typing-extensions, urllib3, zipp are often dependencies of other libraries or might be used for utilities. You might want to be cautious while removing these. Test your application thoroughly if you decide to exclude any of them.
