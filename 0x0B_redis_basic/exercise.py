@@ -59,7 +59,7 @@ def replay(method: Callable) -> None:
     # Looping over each input/output pair and displaying them
     for inp, out in zip(inputs, outputs):
         print(f"{method.__qualname__}(*{inp.decode('utf-8')})"
-                f" -> {out.decode('utf-8')}")
+              f" -> {out.decode('utf-8')}")
 
 
 class Cache:
