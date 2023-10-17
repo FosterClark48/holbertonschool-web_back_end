@@ -12,8 +12,8 @@ RUN apt-get update && \
     apt-get install -y python3.7 python3-pip libmysqlclient-dev python3.7-dev git mysql-server mysql-client && \
     apt-get clean
 
-# Make python3.7 the default python3
-RUN ln -s /usr/bin/python3.7 /usr/bin/python3
+# Make python3.7 the default python3 - it it exists, remove it, then create it
+RUN if [ -e /usr/bin/python3 ]; then rm /usr/bin/python3; fi && ln -s /usr/bin/python3.7 /usr/bin/python3
 
 # Update pip
 RUN python3 -m pip install --upgrade pip
