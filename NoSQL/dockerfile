@@ -1,0 +1,40 @@
+# For the NoSQL Project
+
+# Use Ubuntu 18.04 base image
+FROM ubuntu:18.04
+
+# Stop dialog prompts from APT
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update APT, then install Python 3.7, pip, python3.7-dev, git, and MongoDB
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y python3.7 python3-pip python3.7-dev git wget gnupg && \
+    apt-get clean
+
+# Add MongoDB to sources.list.d
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add - && \
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list && \
+    apt-get update && \
+    apt-get install -y mongodb-org
+
+# Make python3.7 the default python3 - it it exists, remove it, then create it
+RUN if [ -e /usr/bin/python3 ]; then rm /usr/bin/python3; fi && ln -s /usr/bin/python3.7 /usr/bin/python3
+
+# Update pip
+RUN python3 -m pip install --upgrade pip
+
+# Set a working directory
+WORKDIR /app
+
+# Copy your requirements file into the container
+COPY requirements.txt .
+
+# Install the Python packages using pip3
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Setup git config - replace with your info
+RUN git config --global user.email "fosterclark48@yahoo.com"
+RUN git config --global user.name "FosterClark48"
+
+# You can add additional tools/setup steps if needed
