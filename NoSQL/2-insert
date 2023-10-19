@@ -1,0 +1,2 @@
+//  script that inserts a document w/ 1 attr name w/ value of "Holberton school" in the collection school
+db.school.insert({ name: "Holberton school" });
