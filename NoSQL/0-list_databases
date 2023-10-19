@@ -1,3 +1,2 @@
 // script that lists all databases in MongoDB.
-use Implicit
-db.dropDatabase()
+show dbs
