@@ -18,6 +18,9 @@ RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add -
     apt-get update && \
     apt-get install -y mongodb-org
 
+# Create MongoDB data directory and set permissions
+RUN mkdir -p /data/db && chown -R mongodb:mongodb /data/db
+
 # Make python3.7 the default python3 - it it exists, remove it, then create it
 RUN if [ -e /usr/bin/python3 ]; then rm /usr/bin/python3; fi && ln -s /usr/bin/python3.7 /usr/bin/python3
 
@@ -36,5 +39,8 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Setup git config - replace with your info
 RUN git config --global user.email "fosterclark48@yahoo.com"
 RUN git config --global user.name "FosterClark48"
+
+# Set mongod as the container's entry point (I'd rather invoke it myself)
+# CMD ["mongod"]
 
 # You can add additional tools/setup steps if needed
