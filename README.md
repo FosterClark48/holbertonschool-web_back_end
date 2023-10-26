@@ -55,6 +55,12 @@ The course is project-based, meaning you'll learn by doing, creating several web
 
 - ### Project 18: [**NoSQL**](/NoSQL)
 
+- ### Project 19: [**NodeJS Basic**](/Node_JS_basic)
+
+- ### Project 20: [**Unittests in JS**](/unittests_in_js)
+
+- ### Project 21: [**Queuing System in JS**](/queuing_system_in_js)
+
 ## Prerequisites :rocket:
 This course is designed for those with some basic knowledge of programming. It's recommended that you have some experience with a language like Python or C, and a basic understanding of web technologies.
 
