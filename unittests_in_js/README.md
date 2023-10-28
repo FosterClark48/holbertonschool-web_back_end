@@ -97,7 +97,7 @@ bob@dylan:~$ npm test 0-calcul.test.js
   130 passing (35ms)
 bob@dylan:~$
 ```
-#### Files: [package.json](./package.json),[0-calcul.js](./0-calcul.js), [0-calcul.test.js](./0-calcul.test.js)
+#### Files: [package.json](./package.json), [0-calcul.js](./0-calcul.js), [0-calcul.test.js](./0-calcul.test.js)
 
 
 ### [1. Combining descriptions](./1-calcul.js)
