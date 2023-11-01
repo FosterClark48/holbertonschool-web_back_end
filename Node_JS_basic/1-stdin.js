@@ -9,15 +9,15 @@ const rl = readline.createInterface({
 });
 
 // Display initial message
-console.log('Welcome to Holberton School, what is your name?');
+console.log('Welcome to Holberton School, what is your name?\n');
 
 // Handle input
 rl.on('line', (input) => {
-  process.stdout.write(`Your name is: ${input}`);
+  process.stdout.write(`Your name is: ${input}\n`);
   rl.close();
 });
 
 // Handle close event
 rl.on('close', () => {
-  process.stdout.write('This important software is now closing');
+  process.stdout.write('This important software is now closing\n');
 });
