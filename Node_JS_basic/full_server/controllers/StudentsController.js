@@ -10,7 +10,7 @@ const readDatabase = require('../utils');
 class StudentsController {
   static async getAllStudents(req, res) {
     try {
-      const students = await readDatabase('./database.csv');
+      const students = await readDatabase(process.argv[2]);
       let response = 'This is the list of our students\n';
       Object.keys(students).sort().forEach((field) => {
         const names = students[field].join(', ');
@@ -29,7 +29,7 @@ class StudentsController {
     }
 
     try {
-      const students = await readDatabase('./database.csv');
+      const students = await readDatabase(process.argv[2]);
       if (students[major]) {
         const names = students[major].join(', ');
         res.status(200).send(`List: ${names}`);
