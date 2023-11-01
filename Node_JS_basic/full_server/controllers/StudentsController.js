@@ -18,7 +18,7 @@ class StudentsController {
       });
       res.status(200).send(response.trim());
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(500).send('Cannot load the database');
     }
   }
 
@@ -37,7 +37,7 @@ class StudentsController {
         return res.status(200).send('List: ');
       }
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(500).send('Cannot load the database');
     }
     return null;
   }
