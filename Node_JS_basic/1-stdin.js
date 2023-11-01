@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 });
 
 // Display initial message
-console.log('Welcome to Holberton School, what is your name?\n');
+console.log('Welcome to Holberton School, what is your name?');
 
 // Handle input
 rl.on('line', (input) => {
