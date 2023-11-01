@@ -13,11 +13,11 @@ console.log('Welcome to Holberton School, what is your name?');
 
 // Handle input
 rl.on('line', (input) => {
-  console.log(`Your name is: ${input}`);
+  process.stdout.write(`Your name is: ${input}`);
   rl.close();
 });
 
 // Handle close event
 rl.on('close', () => {
-  console.log('This important software is now closing');
+  process.stdout.write('This important software is now closing');
 });
