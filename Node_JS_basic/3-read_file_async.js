@@ -2,7 +2,7 @@
 
 const fs = require('fs').promises;
 
-async function countStudents(path) {
+function countStudents(path) {
   // Return a promise by calling readFile mehtod of fs.promises
   return fs.readFile(path, 'utf8')
     .then((data) => {
