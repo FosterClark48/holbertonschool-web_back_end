@@ -2,3 +2,5 @@
 __pycache__
 .DS_store
 node_modules/
+redis-6.0.10
+redis-6.0.10.tar.gz
