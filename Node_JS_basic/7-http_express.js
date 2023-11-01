@@ -12,9 +12,9 @@ app.get('/', (req, res) => {
 
 app.get('/students', async (req, res) => {
   const output = ['This is the list of our students'];
+  const originalConsoleLog = console.log;
 
   try {
-    const originalConsoleLog = console.log;
     console.log = (message) => {
       output.push(message);
     };
