@@ -20,8 +20,8 @@ describe('calculateNumber', () => {
 
   describe('Type DIVIDE', () => {
     it('should return the division of rounded numbers', () => {
-      assert.strictEqual(calculateNumber('DIVIDE', 1.4, 4.5), 0);
-      assert.strictEqual(calculateNumber('DIVIDE', 4.5, 1.4), 3);
+      assert.strictEqual(calculateNumber('DIVIDE', 1.4, 4.5), 0.2);
+      assert.strictEqual(calculateNumber('DIVIDE', 4.5, 1.4), 5);
     });
 
     it('should return Error when dividing by 0', () => {
